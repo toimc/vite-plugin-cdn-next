@@ -249,7 +249,7 @@ class Scanner {
   }
 
   private serialization(input: Array<IModule | string>) {
-    is(Array.isArray(input), 'vite-plugin-cdn2: option module must be array')
+    is(Array.isArray(input), 'vite-plugin-cdn-next: option module must be array')
     const modules: Array<IModule> = []
     const bucket = new Set<string>()
     for (const module of input) {

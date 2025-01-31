@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "DEBUG=vite-plugin-cdn2 & run-p type-check \"build-only {@}\" --",
+    "build": "DEBUG=vite-plugin-cdn-next & run-p type-check \"build-only {@}\" --",
     "build1": "DEBUG=vite:plugin:* & run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
@@ -35,7 +35,7 @@
     "prettier": "^3.4.2",
     "typescript": "~5.7.3",
     "vite": "^6.0.11",
-    "vite-plugin-cdn2": "workspace:*",
+    "vite-plugin-cdn-next": "workspace:*",
     "vite-plugin-vue-devtools": "^7.7.0",
     "vue-tsc": "^2.2.0"
   }

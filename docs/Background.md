@@ -1,34 +1,29 @@
 # Background
 
-`vite-plugin-cdn2` is a vite plugin that can replace `vite-plugin-cdn`,`vite-plugin-cdn2` or others same as package.
+`vite-plugin-cdn-next` is a vite plugin that can replace `vite-plugin-cdn`,`vite-plugin-cdn-next` or others same as package.
 
 ## Principles
 
 ### Cover as many scenes as possible
 
-Un like other plugins. `vite-plugin-cdn2` can cover as many scenes as possbile. Such as `export * from 'module'`
+Un like other plugins. `vite-plugin-cdn-next` can cover as many scenes as possbile. Such as `export * from 'module'`
 
 ### Friendy Options
 
 If you are using `vite-plugin-cdn-import` you may write the follow option look like:
 
 ```js
-
 import importToCDN from 'vite-plugin-cdn-import'
 
-importToCDN({modules: [{ name: 'react', var: 'React' , path: 'umd/react.production.min.js' }] })
-
+importToCDN({ modules: [{ name: 'react', var: 'React', path: 'umd/react.production.min.js' }] })
 ```
 
-But now when you migrate to `vite-plugin-cdn2`, you only need
-
+But now when you migrate to `vite-plugin-cdn-next`, you only need
 
 ```js
+import { cdn } from 'vite-plugin-cdn-next'
 
-import { cdn } from 'vite-plugin-cdn2'
-
-cdn({modules: ['react'] })
-
+cdn({ modules: ['react'] })
 ```
 
 ## Tradeoffs
@@ -36,12 +31,10 @@ cdn({modules: ['react'] })
 ### Don't support dynamic import
 
 ```js
-
-async function dynamicImport () {
-    const react = import('react')
-    return react
+async function dynamicImport() {
+  const react = import('react')
+  return react
 }
-
 ```
 
 In most of case, we won't use dynamic import to introduce some libraries.

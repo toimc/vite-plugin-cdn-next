@@ -5,16 +5,15 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.4",
-    "vite": "^4",
-    "vite-plugin-cdn2": "workspace: *",
-    "vite-plugin-inspect": "^0.7.38"
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6",
+    "vite-plugin-cdn-next": "workspace:*"
   },
   "dependencies": {
     "@geist-ui/core": "^2.3.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

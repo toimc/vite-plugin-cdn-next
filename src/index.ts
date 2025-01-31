@@ -8,7 +8,7 @@ import type { CDNPluginOptions, ExternalPluginOptions, ModuleInfo } from './inte
 import { transformWithBabel } from './transform'
 import { jsdelivr } from './resolver/jsdelivr'
 
-const debug = _debug('vite-plugin-cdn2')
+const debug = _debug('vite-plugin-cdn-next')
 
 const NODE_MODULES = 'node_modules'
 // rs-module-lexer can't cover all platforms.
@@ -73,7 +73,7 @@ interface ExternalPluginAPI {
 
 function transformPresetModule(api: ExternalPluginAPI): Plugin {
   return {
-    name: 'vite-plugin-cdn2:presetModule',
+    name: 'vite-plugin-cdn-next:presetModule',
     transform(code, id) {
       if (!api.filter(id)) return
       if (id.includes(NODE_MODULES)) {
@@ -99,13 +99,13 @@ function cdn(opts: CDNPluginOptions = {}): Plugin[] {
   const api = _api as ExternalPluginAPI
   const transformPlugin = (): Plugin => {
     return {
-      name: 'vite-plugin-cdn2:transform',
+      name: 'vite-plugin-cdn-next:transform',
       enforce: 'post',
       apply,
       async configResolved(config) {
         const [isSupport, version] = isSupportThreads()
         try {
-          if (!isSupport) throw new Error(`vite-plugin-cdn2 can't work with nodejs ${version}.`)
+          if (!isSupport) throw new Error(`vite-plugin-cdn-next can't work with nodejs ${version}.`)
           const esModuleLexer = await createRsModuleLexer()
           api.dependency.lex = esModuleLexer
           const defaultWd = config.root
@@ -117,7 +117,7 @@ function cdn(opts: CDNPluginOptions = {}): Plugin[] {
           if (logLevel === 'warn') {
             scanner.failedModules.forEach((errorMessage, name) =>
               config.logger.error(
-                `vite-plugin-cdn2: ${name} ${errorMessage ? errorMessage : 'resolved failed.Please check it.'}`
+                `vite-plugin-cdn-next: ${name} ${errorMessage ? errorMessage : 'resolved failed.Please check it.'}`
               )
             )
           }

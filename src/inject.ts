@@ -31,7 +31,7 @@ function createTagDescriptor(options: SetupResult): HtmlTagDescriptor {
 class InjectScript {
   private _tagDescriptors: Array<HtmlTagDescriptor>
   constructor(modules: Map<string, ModuleInfo>, resolve: ResolveOptions) {
-    is(!!resolve || !!resolve.name, '[vite-plugin-cdn2]: missing resolve.')
+    is(!!resolve || !!resolve.name, '[vite-plugin-cdn-next]: missing resolve.')
     this._tagDescriptors = this.prepareSource(modules, resolve)
   }
 
@@ -42,7 +42,10 @@ class InjectScript {
   private prepareSource(modules: Map<string, ModuleInfo>, resolve: ResolveOptions) {
     const container: Array<HtmlTagDescriptor> = []
     // Inherit the insertion postion of the parent node.
-    const traverse = (spare: string | Array<ScriptSpare | LinkSpare>, injectTo: HtmlTagDescriptor['injectTo']) => {
+    const traverse = (
+      spare: string | Array<ScriptSpare | LinkSpare>,
+      injectTo: HtmlTagDescriptor['injectTo']
+    ) => {
       if (typeof spare === 'string') {
         container.push(createTagDescriptor({ url: spare, injectTo, attrs: {} }))
       }
@@ -54,7 +57,6 @@ class InjectScript {
       }
     }
 
-     
     for (const [_, moduleInfo] of modules) {
       const descriptor = createTagDescriptor(resolve.setup({ extra: moduleInfo }))
       if (moduleInfo.spare) traverse(moduleInfo.spare, descriptor.injectTo)

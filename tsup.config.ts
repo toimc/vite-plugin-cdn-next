@@ -7,5 +7,5 @@ export const tsup: Options = {
   clean: true,
   shims: true,
   minify: true,
-  noExternal: ['es-aggregate-error']
+  noExternal: ['@nolyfill/es-aggregate-error']
 }
