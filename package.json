@@ -1,0 +1,102 @@
+{
+  "name": "vite-plugin-cdn-next",
+  "version": "1.0.0",
+  "description": "A Vite plugin that allowed you replace module with CDN",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "c8 -r=lcov ava __tests__/*.spec.ts",
+    "lint": "eslint . --fix",
+    "dev": "tsup --watch src --sourcemap",
+    "e2e": "ava e2e/**/*.spec.ts",
+    "dev:vue": "pnpm --filter vite-vue3 run build"
+  },
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "cdn",
+    "vite-plugin-cdn"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./resolver/*": {
+      "types": "./dist/resolver/*.d.ts",
+      "import": "./dist/resolver/*.mjs",
+      "require": "./dist/resolver/*.js"
+    },
+    "./resolve": {
+      "types": "./dist/resolve.d.ts",
+      "import": "./dist/resolve.mjs",
+      "require": "./dist/resolve.js"
+    },
+    "./scanner": {
+      "types": "./dist/scanner.d.ts",
+      "import": "./dist/scanner.mjs",
+      "require": "./dist/scanner.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "author": "Kanno",
+  "license": "MIT",
+  "homepage": "https://github.com/toimc/vite-plugin-cdn-next",
+  "bugs": {
+    "url": "https://github.com/toimc/vite-plugin-cdn-next/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:toimc/vite-plugin-cdn-next.git"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/node": "^20.5.0",
+    "ava": "^5.2.0",
+    "c8": "^7.12.0",
+    "es-aggregate-error": "latest",
+    "eslint": "^9.18.0",
+    "playwright": "^1.35.1",
+    "tsup": "^8.3.6",
+    "typescript": "~5.7.3",
+    "typescript-eslint": "^8.22.0",
+    "vite": "^6.0.11"
+  },
+  "dependencies": {
+    "@babel/core": "^7.22.5",
+    "@rollup/pluginutils": "^5.0.2",
+    "@xn-sakina/rml-wasm": "^2.1.1",
+    "debug": "^4.3.4",
+    "magic-string": "^0.30.5",
+    "rs-module-lexer": "^2.1.1"
+  },
+  "ava": {
+    "files": [
+      "__tests__/*.spec.ts",
+      "e2e/**/*.spec.ts"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "tsx/cjs"
+    ]
+  },
+  "resolutions": {},
+  "packageManager": "pnpm@9.15.4"
+}
