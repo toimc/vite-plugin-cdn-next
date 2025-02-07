@@ -4,9 +4,26 @@
 
 # Vite Plugin CDN Next
 
+[中文](./README_CN.md)
+
 ## Table of Contents
 
-[toc]
+- [Vite Plugin CDN Next](#vite-plugin-cdn-next)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Basic Setup](#basic-setup)
+    - [Options](#options)
+    - [IModule Interface](#imodule-interface)
+      - [Examples](#examples)
+    - [Resolve](#resolve)
+  - [Examples](#examples-1)
+  - [Debugging](#debugging)
+  - [Contributing](#contributing)
+  - [Reporting Issues](#reporting-issues)
+  - [License](#license)
+  - [Author](#author)
 
 ## Introduction
 
